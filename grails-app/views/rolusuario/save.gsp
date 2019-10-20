@@ -1,0 +1,1 @@
+Al usuario ${usuario.username} se le ha asignado el nuevo rol ${rol.authority}
