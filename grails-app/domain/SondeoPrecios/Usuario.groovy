@@ -22,6 +22,8 @@ class Usuario implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
+    
+
     Set<Rol> getAuthorities() {
         (UsuarioRol.findAllByUsuario(this) as List<UsuarioRol>)*.rol as Set<Rol>
     }
