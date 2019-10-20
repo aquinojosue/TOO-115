@@ -2,7 +2,7 @@ package SondeoPrecios
 
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-
+import SondeoPrecios.*
 class UsuarioController {
 
     UsuarioService usuarioService
@@ -30,6 +30,12 @@ class UsuarioController {
 
         try {
             usuarioService.save(usuario)
+            def rol = Rol.findByAuthority("ROLE_USER");
+            UsuarioRol.create usuario, rol
+            UsuarioRol.withSession {
+                it.flush()
+                it.clear()
+		    }
         } catch (ValidationException e) {
             respond usuario.errors, view:'create'
             return

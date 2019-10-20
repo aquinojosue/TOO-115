@@ -17,26 +17,10 @@
                     <div class="col-md-2">
                         <h2>Control de Usuarios</h2>
                         <ul>
-                            <li>Usuarios</li>
-                            <li>Roles</li>
-                            <li>Asignacion de Roles de Usuario</li>
+                            <li><a href="${createLink(controller:'usuario')}">Lista de Usuarios</a></li>
+                            <li><a href="${createLink(controller:'rol')}">Lista de Roles</a></li>
+                            <li><a href="${createLink(controller:'rolusuario')}">Asignaci&oacute;n de roles de usuario</a></li>
                         </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Cras justo odio</li>
-                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                <li class="list-group-item">Vestibulum at eros</li>
-                            </ul>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
                     </div>
 
                 </section>

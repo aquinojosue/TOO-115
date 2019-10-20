@@ -26,9 +26,13 @@
     <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarContent">
         <ul class="nav navbar-nav ml-auto">
             <g:pageProperty name="page.nav"/>
+            <li class="nav-item">            
+                <sec:ifLoggedIn>
+                    <g:link class="nav-link" controller="logout">Cerrar sesi&oacute;n</g:link>
+                </sec:ifLoggedIn>
+            </li>
         </ul>
     </div>
-
 </nav>
 
 <g:layoutBody/>
