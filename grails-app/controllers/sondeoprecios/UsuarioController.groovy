@@ -81,6 +81,12 @@ class UsuarioController {
             notFound()
             return
         }
+        def usuario = Usuario.get(id)
+        def usuarioRol = UsuarioRol.findByUsuario(usuario)
+
+        if(usuarioRol){
+            usuarioRol.delete()
+        }
 
         usuarioService.delete(id)
 
