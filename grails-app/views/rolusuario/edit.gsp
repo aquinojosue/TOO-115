@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Form</title>
+		<title>Asignar rol a ${usuario.username}</title>
 	</head>
 	<body>
         <div class="nav" role="navigation">
