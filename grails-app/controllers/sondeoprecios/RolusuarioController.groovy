@@ -15,6 +15,7 @@ class RolusuarioController {
 
     def save(){
         def usuario = Usuario.get(params.userID)
+        def currentUser = applicationContext.springSecurityService.currentUser
         def rolAnterior = UsuarioRol.findByUsuario(usuario).rol
         def rolNuevo = Rol.findByAuthority(params.chosenRole)
 
@@ -26,7 +27,7 @@ class RolusuarioController {
             }
 
             UsuarioRol.create usuario, rolNuevo
-            if (!usuario.hasErrors() && usuario.merge(flush: true)) {
+            if (!usuario.hasErrors() && usuario.merge(flush: true) && usuario.id == currentUser.id) {
                 applicationContext.springSecurityService.reauthenticate usuario.username
             }
         }
