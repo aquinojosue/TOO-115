@@ -1,11 +1,19 @@
 package sondeoprecios
+import SondeoPrecios.*
 
-import SondeoPrecios.Rol
-import SondeoPrecios.Usuario
-import SondeoPrecios.UsuarioRol
 class BootStrap {
 
     def init = { servletContext ->
+
+    	new Marca(nombre: 'Issima', descripcion: 'buenos productos').save()
+    	new Categoria(nombre: 'Aceites').save()
+    	new UnidadMedida(nombre: 'Mililitros',representacion:'mL').save()
+    	new Presentacion(nombre: 'Bolsa').save()
+
+    	def sanSalvador = new Departamento(nombre: 'San Salvador').save()
+    	def ilopango = new Municipio(nombre: 'Ilopango', departamento: sanSalvador).save()
+    	new Ubicacion(nombre: 'Super Selectos Santa Lucia', municipio: ilopango,direccion:'una calle algo').save()
+
 
     	new Rol(authority: 'ROLE_CUSTOMER').save()
     	new Rol(authority: 'ROLE_USER').save()

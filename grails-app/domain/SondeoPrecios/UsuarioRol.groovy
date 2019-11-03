@@ -84,4 +84,8 @@ class UsuarioRol implements Serializable {
 		id composite: ['usuario', 'rol']
 		version false
 	}
+
+	String toString(){
+		usuario.username
+	}
 }

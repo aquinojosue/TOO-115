@@ -23,7 +23,9 @@ class Usuario implements Serializable {
     boolean passwordExpired
 
     
-
+    String toString(){
+        nomUsuario  + " " + apeUsuario
+    }
     Set<Rol> getAuthorities() {
         (UsuarioRol.findAllByUsuario(this) as List<UsuarioRol>)*.rol as Set<Rol>
     }
