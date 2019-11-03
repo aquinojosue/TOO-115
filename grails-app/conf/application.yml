@@ -92,13 +92,13 @@ dataSource:
     pooled: true
     jmxExport: true
     driverClassName: oracle.jdbc.OracleDriver
-    username: system
+    username: too115
     password: 'admin'
 
 environments:
     development:
         dataSource:
-            dbCreate: create
+            dbCreate: update
             dialect : org.hibernate.dialect.Oracle10gDialect
             url: jdbc:oracle:thin:@127.0.0.1:1521:xe
     test:

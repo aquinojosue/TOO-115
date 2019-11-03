@@ -10,19 +10,20 @@
                 <li><a class="home" href="${createLink(uri: '/admin')}"><g:message code="default.home.label"/></a></li>
             </ul>
         </div>
+
             <div class="content" role="main">
                 <h1>Bienvenido, ${applicationContext.springSecurityService.currentUser}</h1>
                 <section class="row colset-2-its">
-
-                    <div class="col-md-2">
-                        <h2>Control de Usuarios</h2>
-                        <ul>
-                            <li><a href="${createLink(controller:'usuario')}">Lista de Usuarios</a></li>
-                            <li><a href="${createLink(controller:'rol')}">Lista de Roles</a></li>
-                            <li><a href="${createLink(controller:'rolusuario')}">Asignaci&oacute;n de roles de usuario</a></li>
-                        </ul>
-                    </div>
-
+                    <sec:ifAllGranted roles='ROLE_ADMIN'>
+                        <div class="col-md-2">
+                            <h2>Control de Usuarios</h2>
+                            <ul>
+                                <li><a href="${createLink(controller:'usuario')}">Lista de Usuarios</a></li>
+                                <li><a href="${createLink(controller:'rol')}">Lista de Roles</a></li>
+                                <li><a href="${createLink(controller:'rolusuario')}">Asignaci&oacute;n de roles de usuario</a></li>
+                            </ul>
+                        </div>
+                    </sec:ifAllGranted>
                     <div class="col-md-2">
                         <h2>Control de Ubicaciones</h2>
                         <ul>

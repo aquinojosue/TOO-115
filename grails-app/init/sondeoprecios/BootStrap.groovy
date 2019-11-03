@@ -6,7 +6,11 @@ class BootStrap {
     def init = { servletContext ->
 
     	new Marca(nombre: 'Issima', descripcion: 'buenos productos').save()
-    	new Categoria(nombre: 'Aceites').save()
+    	new Categoria(nombre: 'Granos Básicos').save()
+    	new Categoria(nombre: 'Productos Básicos').save()
+    	new Categoria(nombre: 'Harinas').save()
+    	new Categoria(nombre: 'Frutas, Verduras, carnes y huevos').save()
+    	new Categoria(nombre: 'Útiles escolares').save()
     	new UnidadMedida(nombre: 'Mililitros',representacion:'mL').save()
     	new Presentacion(nombre: 'Bolsa').save()
 

@@ -5,6 +5,9 @@
         <title>Tabla de precios</title>
     </head>
     <body>
+        <sec:ifLoggedIn>
+            Logged in as <sec:username/>
+        </sec:ifLoggedIn>
     	<h1>Tabla de precios</h1>
     	<table class="table">
     		<thead class="thead-dark">
