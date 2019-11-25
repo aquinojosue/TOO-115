@@ -57,8 +57,8 @@ class ControllerService {
     	def rolesPermitidos = Requestmap.findByUrl(uri)?.configAttribute
 		def rolConPermiso = []
 		Rol.list().each{ rol ->
-			def rolPermitido = rolePermitidos.contains(rol.authority)
-			rolConPermiso.add([rol: role.authority, permitido: rolePermitido])
+			def rolPermitido = rolesPermitidos.contains(rol.authority)
+			rolConPermiso.add([rol: rol.authority, permitido: rolPermitido])
 		}
 		return [nombre: controller, rolConPermiso: rolConPermiso]
     }
