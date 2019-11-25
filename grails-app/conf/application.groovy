@@ -1,39 +1,22 @@
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'SondeoPrecios.Usuario'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'SondeoPrecios.UsuarioRol'
-grails.plugin.springsecurity.authority.className = 'SondeoPrecios.Rol'
-grails.plugin.springsecurity.securityConfigType="InterceptUrlMap"
-grails.plugin.springsecurity.interceptUrlMap = [
-	[pattern: '/',               	access: ['permitAll']],
-	[pattern: '/error',          	access: ['permitAll']],
-	[pattern: '/index',          	access: ['permitAll']],
-	[pattern: '/home/**',        	access: ['permitAll']],
-	[pattern: '/index.gsp',      	access: ['permitAll']],
-	[pattern: '/shutdown',       	access: ['permitAll']],
-	[pattern: '/assets/**',      	access: ['permitAll']],
-	[pattern: '/**/js/**',       	access: ['permitAll']],
-	[pattern: '/**/css/**',      	access: ['permitAll']],
-	[pattern: '/**/css/**',      	access: ['permitAll']],
-	[pattern: '/tablaPrecios/**', 	access: ['permitAll']],
-	[pattern: '/ubicacion/**',   	access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/departamento/**',	access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/municipio/**',      access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/usuario/**',     	access: ['ROLE_ADMIN']],
-	[pattern: '/rol/**',     	 	access: ['ROLE_ADMIN']],
-	[pattern: '/rolusuario/**',  	access: ['ROLE_ADMIN']],
-	[pattern: '/admin/**',   	 	access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/producto/**',   	access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/precio/**',   	 	access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/presentacion/**',   access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/categoria/**',   	access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/unidadMedida/**',   access: ['ROLE_ADMIN','ROLE_USER']],
-	[pattern: '/marca/**',   	 	access: ['ROLE_ADMIN']],
-	[pattern: '/login/**',       	access: ['permitAll']],
-	[pattern: '/logout/**',      	access: ['permitAll']],
-	[pattern: '/dbconsole/**',   	access: ['permitAll']],
-	[pattern: '/**/favicon.ico', 	access: ['permitAll']]
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.enigma.SondeoPrecios.Seguridad.Usuario'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.enigma.SondeoPrecios.Seguridad.UsuarioRol'
+grails.plugin.springsecurity.authority.className = 'com.enigma.SondeoPrecios.Seguridad.Rol'
+grails.plugin.springsecurity.requestMap.className = 'com.enigma.SondeoPrecios.Seguridad.Requestmap'
+grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	[pattern: '/',               access: ['permitAll']],
+	[pattern: '/error',          access: ['permitAll']],
+	[pattern: '/index',          access: ['permitAll']],
+	[pattern: '/index.gsp',      access: ['permitAll']],
+	[pattern: '/shutdown',       access: ['permitAll']],
+	[pattern: '/assets/**',      access: ['permitAll']],
+	[pattern: '/**/js/**',       access: ['permitAll']],
+	[pattern: '/**/css/**',      access: ['permitAll']],
+	[pattern: '/**/images/**',   access: ['permitAll']],
+	[pattern: '/**/favicon.ico', access: ['permitAll']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [

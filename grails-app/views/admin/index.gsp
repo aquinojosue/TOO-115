@@ -1,52 +1,66 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-  <head>
-        <meta name="layout" content="main" />
-        <title>Panel de administracion - ${applicationContext.springSecurityService.currentUser.username}</title>
+<%@ page import="com.enigma.SondeoPrecios.Seguridad.Usuario" %>
+<%@ page import="com.enigma.SondeoPrecios.Ubicacion.*" %>
+<%@ page import="com.enigma.SondeoPrecios.Producto.*" %>
+<html>
+<head>
+    <title>Administrador</title>
 </head>
-  <body>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/admin')}"><g:message code="default.home.label"/></a></li>
-            </ul>
-        </div>
+<body>
+    <h3 class="mb-4">Bienivenido de nuevo, ${applicationContext.springSecurityService.currentUser}</h3>
 
-            <div class="content" role="main">
-                <h1>Bienvenido, ${applicationContext.springSecurityService.currentUser}</h1>
-                <section class="row colset-2-its">
-                    <sec:ifAllGranted roles='ROLE_ADMIN'>
-                        <div class="col-md-2">
-                            <h2>Control de Usuarios</h2>
-                            <ul>
-                                <li><a href="${createLink(controller:'usuario')}">Lista de Usuarios</a></li>
-                                <li><a href="${createLink(controller:'rol')}">Lista de Roles</a></li>
-                                <li><a href="${createLink(controller:'rolusuario')}">Asignaci&oacute;n de roles de usuario</a></li>
-                            </ul>
-                        </div>
-                    </sec:ifAllGranted>
-                    <div class="col-md-2">
-                        <h2>Control de Ubicaciones</h2>
-                        <ul>
-                            <li><a href="${createLink(controller:'departamento')}">Deparamentos</a></li>
-                            <li><a href="${createLink(controller:'municipio')}">Municipios</a></li>
-                            <li><a href="${createLink(controller:'ubicacion')}">Ubicaciones</a></li>
-                        </ul>
+    <div class="row mb-4">
+        <div class="col-md">
+            <div class="d-flex border">
+                <div class="bg-primary text-light p-4">
+                    <div class="d-flex align-items-center h-100">
+                        <i class="fa fa-3x fa-fw fa-cube"></i>
                     </div>
-
-                    <div class="col-md-2">
-                        <h2>Control de Productos</h2>
-                        <ul>
-                            <li><a href="${createLink(controller:'producto')}">Productos</a></li>
-                            <li><a href="${createLink(controller:'precio')}">Precios</a></li>
-                            <li><a href="${createLink(controller:'presentacion')}">Presentaciones</a></li>
-                            <li><a href="${createLink(controller:'categoria')}">Categor&iacute;as</a></li>
-                            <li><a href="${createLink(controller:'unidadMedida')}">Unidades de medida</a></li>
-                            <li><a href="${createLink(controller:'marca')}">Marcas</a></li>
-                        </ul>
-                    </div>
-
-                </section>
                 </div>
-            </div> 
-  </body>
+                <div class="flex-grow-1 bg-white p-4">
+                    <span class="text-uppercase text-secondary mb-0 ">Productos</span>
+                    <h3 class="font-weight-bold mb-0">${Producto.count()}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="d-flex border">
+                <div class="bg-success text-light p-4">
+                    <div class="d-flex align-items-center h-100">
+                        <i class="fa fa-3x fa-fw fa-comment-dollar"></i>
+                    </div>
+                </div>
+                <div class="flex-grow-1 bg-white p-4">
+                    <span class="text-uppercase text-secondary mb-0">Precios</span>
+                    <h3 class="font-weight-bold mb-0">${Precio.count()}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="d-flex border">
+                <div class="bg-danger text-light p-4">
+                    <div class="d-flex align-items-center h-100">
+                        <i class="fa fa-3x fa-fw fa-shopping-cart"></i>
+                    </div>
+                </div>
+                <div class="flex-grow-1 bg-white p-4">
+                    <span class="text-uppercase text-secondary mb-0">Mercados</span>
+                    <h3 class="font-weight-bold mb-0">${Mercado.count()}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="d-flex border">
+                <div class="bg-info text-light p-4">
+                    <div class="d-flex align-items-center h-100">
+                        <i class="fa fa-3x fa-fw fa-users"></i>
+                    </div>
+                </div>
+                <div class="flex-grow-1 bg-white p-4">
+                    <span class="text-uppercase text-secondary mb-0">Usuarios</span>
+                    <h3 class="font-weight-bold mb-0">${Usuario.count()}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

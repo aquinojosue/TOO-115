@@ -2,15 +2,11 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Sistema de Sondeo de Precios</title>
+    <title>Welcome to Grails</title>
 </head>
 <body>
 <content tag="nav">
-    <li class="nav-item">
-        <a class="nav-link" href="./admin">Panel de administraci&oacute;n</a>
-    </li>
- 
-    <!-- <li class="dropdown">
+    <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li class="dropdown-item"><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
@@ -28,10 +24,6 @@
             <li class="dropdown-item"><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
         </ul>
     </li>
-      <li>
-        <a class="nav-link" href="#">Features</a>
-      </li>
- 
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -48,18 +40,18 @@
                 <li class="dropdown-item"><a href="#">${plugin.name} - ${plugin.version}</a></li>
             </g:each>
         </ul>
-    </li> -->
+    </li>
 </content>
 
-<!-- <div class="svg" role="presentation">
+<div class="svg" role="presentation">
     <div class="grails-logo-container">
         <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
     </div>
-</div> -->
+</div>
 
 <div id="content" role="main">
     <section class="row colset-2-its">
-        <h1>Bienvenido al Sistema de Sondeo de Precios</h1>
+        <h1>Welcome to Grails</h1>
 
         <p>
             Congratulations, you have successfully started your first Grails application! At the moment
