@@ -68,7 +68,7 @@
                     </ul>
                 </li>
             </g:securedGroup>
-            <g:securedGroup controllerCheck="usuario, permiso">
+            <g:securedGroup controllerCheck="usuario, permiso, rol">
                 <li>
                     <a href="#nav_usuarios" data-toggle="collapse">
                         <i class="fa fa-fw fa-address-card"></i> Usuarios
