@@ -136,7 +136,7 @@ class UsuarioController {
 	    			found = (rol?.id == role.id)? true: found
 	    		}
 	    		if(!found){
-	    			def rolNuevo = new UsuarioRol(user: editElement, role: rol)
+	    			def rolNuevo = new UsuarioRol(usuario: editElement, rol: rol)
 	    			rolNuevo.save flush: true, failOnError: true
 	    		}
 	    	}
