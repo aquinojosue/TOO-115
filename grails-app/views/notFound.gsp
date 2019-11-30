@@ -1,14 +1,24 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Page Not Found</title>
-        <meta name="layout" content="main">
-        <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
-    </head>
-    <body>
-        <ul class="errors">
-            <li>Error: Page Not Found (404)</li>
-            <li>Path: ${request.forwardURI}</li>
-        </ul>
-    </body>
+<head>
+    <meta name="layout" content="home"/>
+    <title>Error - enigma</title>
+</head>
+<body>
+    <main class="page shopping-cart-page">
+        <section class="clean-block clean-cart dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h1>404</h1>
+
+                    <div>
+                        <i class="fa fa-5x fa-fw fa-sad-tear"></i>
+                    </div>
+                    <h2>Página no encontrada</h2>
+                    <p>Al parecer la página que se estaba buscando no existe.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
 </html>

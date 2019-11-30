@@ -17,6 +17,7 @@
             </div>
             </g:if>
             <g:link action="create"><i class="fa fa-fw fa-plus"></i>Agregar precio</g:link>
+            <g:link controller="tablaprecios" action="reporte"><i class="fa fa-fw fa-download"></i>Descargar reporte de precios</g:link>
             <table class="table table-hover">
                 <thead >
                     <tr>

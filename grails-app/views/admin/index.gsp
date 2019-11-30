@@ -1,7 +1,8 @@
+<html>
 <%@ page import="com.enigma.SondeoPrecios.Seguridad.Usuario" %>
 <%@ page import="com.enigma.SondeoPrecios.Ubicacion.*" %>
 <%@ page import="com.enigma.SondeoPrecios.Producto.*" %>
-<html>
+
 <head>
     <title>Administrador</title>
 </head>
@@ -60,6 +61,34 @@
                     <h3 class="font-weight-bold mb-0">${Usuario.count()}</h3>
                 </div>
             </div>
+        </div>
+            
+    </div>
+        <div class="card mb-4">
+        <div class="card-body">
+            <h3>Últimos 5 precios</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Mercado</th>
+                        <th>Precio</th>
+                        <th>Fecha de creación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <g:each in="${Precio.list(max:5)}" var="precio">
+                        <tr>
+                            <td>${precio.producto}</td>
+                            <td>${precio.mercado}</td>
+                            <td>${precio.precio}</td>
+                            <td>
+                                <g:formatDate format="EEEE dd/MM/yyyy HH:mm:ss" date="${precio.dateCreated}"/>
+                            </td>
+                        </tr> 
+                    </g:each>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

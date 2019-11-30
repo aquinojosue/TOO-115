@@ -49,6 +49,8 @@ dependencies {
     compile 'org.grails.plugins:spring-security-core:3.3.1'
     console "org.grails:grails-console"
     profile "org.grails.profiles:web"
+    runtime 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    compile "org.grails.plugins:excel-export:2.1"
     runtime "org.glassfish.web:el-impl:2.1.2-b03"
     runtime "com.h2database:h2"
     runtime "org.apache.tomcat:tomcat-jdbc"

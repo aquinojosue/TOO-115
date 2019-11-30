@@ -100,7 +100,7 @@ environments:
         dataSource:
             dbCreate: update
             dialect : org.hibernate.dialect.Oracle10gDialect
-            url: jdbc:oracle:thin:@127.0.0.1:1521:xe
+            url: jdbc:oracle:thin:@127.0.0.1:1521:too115
     test:
         dataSource:
             dbCreate: update

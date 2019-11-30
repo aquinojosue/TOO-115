@@ -12,7 +12,7 @@
         	<div class="col-lg-4">
 	            <g:form action="save">
 	            	<div class="form-group">
-	            		<label for="exampleInputEmail1">Nombre de la categor&iacute;a</label>
+	            		<label for="nombre">Nombre de la categor&iacute;a</label>
 	            			<g:textField class="form-control" name="nombre" placeholder="Ingrese su categoría aquí"/>
 	            	</div>
 	            	<button type="submit" class="btn btn-primary">Crear Categoría</button>
