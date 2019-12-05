@@ -43,7 +43,7 @@
                                 <g:set var="precios" bean="precioService"/>
                                 <ul>
                                     <g:each in="${precios.productoPrecios(it)}" var="precio">
-                                        <li>$ ${precio.precio} en ${precio.mercado}</li>
+                                        <li>$ <g:formatNumber number="${precio.precio}" type="number" minFractionDigits="2" maxFractionDigits="2" /> en ${precio.mercado}</li>
                                     </g:each>
                                 </ul>
                             </td>

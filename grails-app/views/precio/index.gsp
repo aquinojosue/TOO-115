@@ -34,7 +34,8 @@
                             <td><g:formatDate format="EEEE dd/MM/yyyy HH:mm:ss" date="${it.dateCreated}"/></td>
                             <td>${it.producto}</td>
                             <td>${it.mercado}</td>
-                            <td>${it}</td>
+                            <td>
+                                <g:formatNumber number="${it.precio}" type="number" minFractionDigits="2" maxFractionDigits="2" /></td>
                             <td>
                                 <ul class="list-unstyled">
                                     <li>

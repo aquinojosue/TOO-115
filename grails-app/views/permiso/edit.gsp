@@ -16,8 +16,8 @@
                         <ul class="list-unstyled">
                             <g:each in="${controllerPermiso.rolConPermiso}" var="rol">
                                 <li>
-                                    <g:checkBox name="rolPermitido" value="${rol.rol}" checked="${rol.permitido}" />
-                                    <label for="rolPermitido">${rol.rol}</label>
+                                    <g:checkBox name="rolPermitido" id="${rol.rol}" value="${rol.rol}" checked="${rol.permitido}" />
+                                    <label for="${rol.rol}">${rol.rol}</label>
                                 </li>
                             </g:each>
                         </ul>

@@ -77,11 +77,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <g:each in="${Precio.list(max:5)}" var="precio">
+                    <g:each in="${Precio.list(max:5, sort:'dateCreated', order:'desc')}" var="precio">
                         <tr>
                             <td>${precio.producto}</td>
                             <td>${precio.mercado}</td>
-                            <td>${precio.precio}</td>
+                            <td>
+                                <g:formatNumber number="${precio.precio}" type="number" minFractionDigits="2" maxFractionDigits="2" />
+                            </td>
                             <td>
                                 <g:formatDate format="EEEE dd/MM/yyyy HH:mm:ss" date="${precio.dateCreated}"/>
                             </td>

@@ -7,6 +7,8 @@ import grails.compiler.GrailsCompileStatic
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
+
+
 class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1

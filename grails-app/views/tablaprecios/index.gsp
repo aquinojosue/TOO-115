@@ -60,7 +60,7 @@
                                                 <td>${mercado.precio}</td>
                                             </g:each>
                                             <td>
-                                                <g:formatNumber number="${producto.promedio}" type="number" maxFractionDigits="2" />
+                                                <g:formatNumber number="${producto.promedio}" type="number" minFractionDigits="2" maxFractionDigits="2" />
                                             </td>
                                         </tr>
                                     </g:each>

@@ -1,9 +1,9 @@
 package com.enigma.SondeoPrecios 
 
-import pl.touk.excel.export.WebXlsxExporter
-import pl.touk.excel.export.XlsxExporter
-import pl.touk.excel.export.getters.LongToDatePropertyGetter
-import pl.touk.excel.export.getters.MessageFromPropertyGetter
+import org.apache.poi.ss.usermodel.BorderStyle
+
+import com.jameskleeh.excel.ExcelBuilder
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
 
 import com.enigma.SondeoPrecios.Ubicacion.Mercado
 import com.enigma.SondeoPrecios.Producto.*
@@ -32,31 +32,65 @@ class TablapreciosController {
             return
         }
 
-        def headers = ['Categoría', 'Producto', 'Unidad de medida']
+        def headers = ["Categoría", "Producto", "Marca","Cantidad","Unidad"]
 
         datos.first().productos.first().mercados.each(){ mercado ->
             headers.add(mercado.mercado)
         }
-        headers.add('Promedio nacional')
 
-        new WebXlsxExporter().with {
-            setResponseHeaders(response)
-            fillHeader(headers)
-            def i=0
-            datos.each{categoria ->
-                categoria.productos.each{producto ->                
-                    def row = []
-                    row.add(categoria.categoria)
-                    row.add(producto.producto)
-                    row.add(producto.producto.unidadMedida)
-                    producto.mercados.each{ mercado ->
-                        row.add(mercado.precio)
+        // new WebXlsxExporter().with {
+        //     setResponseHeaders(response)
+        //     fillHeader(headers)
+        //    def i=3
+        //     save(response.outputStream)
+        // }
+        
+        response.setContentType("application/vnd.ms-excel")
+
+        response.setHeader("Content-Disposition", "attachment; filename=users.xlsx")
+
+        ExcelBuilder.output(response.outputStream) {
+            def hoja = sheet{
+                row{
+                    merge{
+                        cell("Sondeo de Precios",[alignment: "center", font: [bold: true, size:24]])
+                        skipCells(4)
                     }
-                    row.add(producto.promedio)
-                    fillRow(row, ++i)
+                }
+                row{
+                    merge{
+                        cell(new Date().format( 'dd/MM/yyyy' ),[alignment: "center"])
+                        skipCells(4)
+                    }
+                    merge{
+                        cell("Precios", [alignment: "center", backgroundColor: "#244062", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], wrapped: true, border: BorderStyle.MEDIUM])
+                        skipCells(datos.first().productos.first().mercados.size()-1)
+                    }
+                }
+                row{
+                    headers.each{ header->
+                        cell(header,[alignment: "center", backgroundColor: "#244062", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], border: BorderStyle.MEDIUM])
+                    }
+                }
+                datos.each{categoria ->
+                    categoria.productos.each{producto ->                
+                        row{
+                            cell(categoria.categoria.nombre)
+                            cell(producto.producto.nombre)
+                            cell(producto.producto.marca)
+                            cell(producto.producto.cantidad)
+                            cell(producto.producto.unidadMedida)
+                            producto.mercados.each{ mercado ->
+                                cell(mercado.precio,[alignment: 'center'])
+                            }
+                        }
+                    }
                 }
             }
-            save(response.outputStream)
+            int numero = hoja.getRow(2).getPhysicalNumberOfCells()
+            while(numero>=0){
+                hoja.autoSizeColumn(numero--)
+            }
         }
     }
 }
