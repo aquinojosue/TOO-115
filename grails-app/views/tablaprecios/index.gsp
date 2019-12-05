@@ -1,6 +1,6 @@
+<!doctype html>
 <%@ page import="com.enigma.SondeoPrecios.Ubicacion.*" %>
 <%@ page import="com.enigma.SondeoPrecios.Producto.*" %>
-<!doctype html>
 <html>
 <head>
     <meta name="layout" content="home"/>
@@ -12,6 +12,7 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Tabla de precios</h2>
+                    <g:link action="reporte" class="btn btn-secondary">Descargar reporte de precios</g:link>
                 </div>
 
                 <div class="content">

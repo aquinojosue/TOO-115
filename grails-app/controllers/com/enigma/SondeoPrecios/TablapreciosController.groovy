@@ -38,31 +38,30 @@ class TablapreciosController {
             headers.add(mercado.mercado)
         }
         
-        response.setContentType("application/vnd.ms-excel")
-
+        response.setContentType("application/vnd.ms-excel; charset=UTF-8")
         response.setHeader("Content-Disposition", "attachment; filename=reporte_precios_"+new Date().format( 'dd_MM_yyyy' )+".xlsx")
 
         ExcelBuilder.output(response.outputStream) {
             def hoja = sheet{
                 row{
-                    merge{
-                        cell("Sondeo de Precios",[alignment: "center", font: [bold: true, size:24]])
-                        skipCells(4)
+                    merge([alignment: "center", backgroundColor: "#244062", font: [bold: true, color: "#FFFFFF", size: 24], wrapped: true, border: BorderStyle.MEDIUM]){
+                        cell("Sondeo de Precios")
+                        skipCells(4+datos.first().productos.first().mercados.size())
                     }
                 }
                 row{
-                    merge{
-                        cell(new Date().format( 'dd/MM/yyyy' ),[alignment: "center"])
+                    merge([alignment: "center", backgroundColor: "#385f8f", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], wrapped: true, border: BorderStyle.MEDIUM]){
+                        cell("Fecha del reporte: "+new Date().format( 'dd/MM/yyyy' ))
                         skipCells(4)
                     }
-                    merge{
-                        cell("Precios", [alignment: "center", backgroundColor: "#244062", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], wrapped: true, border: BorderStyle.MEDIUM])
+                    merge([alignment: "center", backgroundColor: "#385f8f", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], wrapped: true, border: BorderStyle.MEDIUM]){
+                        cell("Precios")
                         skipCells(datos.first().productos.first().mercados.size()-1)
                     }
                 }
                 row{
                     headers.each{ header->
-                        cell(header,[alignment: "center", backgroundColor: "#244062", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], border: BorderStyle.MEDIUM])
+                        cell(header,[alignment: "center", backgroundColor: "#4372ab", font: [bold: true, color: "#FFFFFF", name: "Times New Roman"], border: BorderStyle.MEDIUM])
                     }
                 }
                 datos.each{categoria ->
@@ -72,7 +71,7 @@ class TablapreciosController {
                             cell(producto.producto.nombre)
                             cell(producto.producto.marca)
                             cell(producto.producto.cantidad)
-                            cell(producto.producto.unidadMedida)
+                            cell(producto.producto.unidadMedida.nombre)
                             producto.mercados.each{ mercado ->
                                 cell(mercado.precio,[alignment: 'center'])
                             }

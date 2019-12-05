@@ -80,6 +80,11 @@
                     </ul>
                 </li>
             </g:securedGroup>
+            <li>
+                <g:link controller="tablaprecios" target="_blank">
+                    <i class="fa fa-fw fa-table"></i> Ver tabla de precios
+                </g:link>
+            </li>
         </ul>
     </div>
 
