@@ -37,17 +37,10 @@ class TablapreciosController {
         datos.first().productos.first().mercados.each(){ mercado ->
             headers.add(mercado.mercado)
         }
-
-        // new WebXlsxExporter().with {
-        //     setResponseHeaders(response)
-        //     fillHeader(headers)
-        //    def i=3
-        //     save(response.outputStream)
-        // }
         
         response.setContentType("application/vnd.ms-excel")
 
-        response.setHeader("Content-Disposition", "attachment; filename=users.xlsx")
+        response.setHeader("Content-Disposition", "attachment; filename=reporte_precios_"+new Date().format( 'dd_MM_yyyy' )+".xlsx")
 
         ExcelBuilder.output(response.outputStream) {
             def hoja = sheet{
