@@ -165,7 +165,7 @@ class UsuarioController {
 			}
     		if(params.confirmation != null){
                 try {
-                	UsuarioRol.findAllByUser(deleteElement).each{ userRole ->
+                	UsuarioRol.findAllByUsuario(deleteElement).each{ userRole ->
                 		userRole.delete flush:true, failOnError: true
                 	}
                     deleteElement.delete flush: true, failOnError: true

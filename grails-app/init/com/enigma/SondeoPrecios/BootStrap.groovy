@@ -25,13 +25,52 @@ class BootStrap {
         new Mercado(nombre: 'Super Selectos Santa Lucia', municipio: ilopango,direccion:'una calle algo',telefono:'22948579', tipoMercado: supermercado).save()
 
         //Creación de usuarios y roles
-        Usuario admin2 = new Usuario(username:'admin', password: 'admin', firstName: 'Administrador', lastName: 'Sistema', email: 'admin@localhost').save()
-        Usuario admin = new Usuario(username:'jaquino', password: 'admin', firstName: 'Josué', lastName: 'Aquino', email: 'aquino@localhost').save()
+        Usuario admin = new Usuario(username:'admin', password: 'admin', firstName: 'Administrador', lastName: 'Sistema', email: 'admin@localhost').save()
+        Usuario ab15002 = new Usuario(
+            username:'ab15002',
+            password: 'admin',
+            firstName: 'Josué',
+            lastName: 'Aquino',
+            email: 'ab15002@localhost'
+        ).save()
+        Usuario av12013 = new Usuario(
+            username:'av12013',
+            password: 'admin',
+            firstName: 'Celina',
+            lastName: 'Viscarra',
+            email: 'av12013@localhost'
+        ).save()
+        Usuario cm13016 = new Usuario(
+            username:'cm13016',
+            password: 'admin',
+            firstName: 'Iveth',
+            lastName: 'Carranza',
+            email: 'cm13016@localhost'
+        ).save()
+        Usuario ce12006 = new Usuario(
+            username:'ce12006',
+            password: 'admin',
+            firstName: 'Elsy',
+            lastName: 'Castro',
+            email: 'ce12006@localhost'
+        ).save()
+        Usuario vn10004 = new Usuario(
+            username:'vn10004',
+            password: 'admin',
+            firstName: 'Alexis',
+            lastName: 'Vásquez',
+            email: 'vn10004@localhost'
+        ).save()
         Rol user = new Rol(authority: 'ROLE_USER').save()
         Rol adminRole = new Rol(authority: 'ROLE_ADMIN').save()
+        adminRole = adminRole!=null ? adminRole: Rol.findByAuthority("ROLE_ADMIN") 
         new Rol(authority: 'ROLE_CUSTOMER').save()
         UsuarioRol.create(admin,user)
-        UsuarioRol.create(admin2,adminRole)
+        UsuarioRol.create(ab15002,adminRole)
+        UsuarioRol.create(av12013,adminRole)
+        UsuarioRol.create(cm13016,adminRole)
+        UsuarioRol.create(ce12006,adminRole)
+        UsuarioRol.create(vn10004,adminRole)
 
         //Agregando permisos para acceso publico
         for (String url in [
