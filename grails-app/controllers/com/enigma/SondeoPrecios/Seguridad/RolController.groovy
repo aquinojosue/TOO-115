@@ -15,7 +15,9 @@ class RolController {
                 return
             }
 
-            def newElement = new Rol(authority: authority).save()
+            def newElement = new Rol()
+            newElement.authority = params.authority
+            newElement.save flush: true, failOnError: true
 
             flash.message = "El rol fue creado con éxito"
             flash.typeMessage = "success"
@@ -73,7 +75,7 @@ class RolController {
 			}
     		if(params.confirmation != null){
                 try {
-                	UsuarioRol.findAllByRole(deleteElement).each{ userRole ->
+                	UsuarioRol.findAllByRol(deleteElement).each{ userRole ->
                 		userRole.delete flush:true, failOnError: true
                 	}
                     deleteElement.delete flush: true, failOnError: true
