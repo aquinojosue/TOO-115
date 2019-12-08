@@ -72,7 +72,7 @@ class UsuarioController {
 	    	newElement.save flush: true, failOnError: true
 
 	    	rolesAsignados.each{ rolAsignado ->
-	    		def rolNuevo = new UsuarioRol(user: newElement, role: Rol.findByAuthority(rolAsignado))
+	    		def rolNuevo = new UsuarioRol(usuario: newElement, rol: Rol.findByAuthority(rolAsignado))
 	    		rolNuevo.save flush: true, failOnError: true
 	    	}
 
